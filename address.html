@@ -5,7 +5,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!-- -->
         <script>src="js/address.js"</script>
-        <input class="addressTextbox" type="text" styler="textbox" id="addr1" name="addr1" value="301 VILLAGE DR" size="57" maxlength="100" onfocus="this.select()">
+        <input class="addressTextbox" type="text" styler="textbox" id="addr0" name="addr0" value="301 VILLAGE DR" size="57" maxlength="100" onfocus="this.select()">
         <br>
         Address 1:
         <br>
@@ -51,14 +51,17 @@
 
             xhr.onload = function() {
                 if(this.status == 200 && this.readyState === this.DONE) {
-                    console.log(this.responseText);
-                    console.log(xhr);
+                    //console.log(this.responseText);
+                    console.log(this.responseText)
                 }
             }
             xhr.send(escape(url));
 
             // handle XHR response
-            
+            var parser = new DOMParser();
+            var xmlDoc = parser.parseFromString(xhr.responseText, "text/xml");
+
+            document.getElementById("addr1").value = xmlDoc.getElementsByTagName("state")[0];
         }
 
 
