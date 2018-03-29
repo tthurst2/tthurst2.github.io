@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html>
-<body>
-<!-- J Query -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!-- -->
-<script>src="js/address.js"</script>
-<input class="addressTextbox" type="text" styler="textbox" id="addr1" name="addr1" value="301 VILLAGE DR" size="57" maxlength="100" onfocus="this.select()">
-<br>
-Address 1:
-<br>
-<input type="text" id="addr1" placeholder="Address 1" value="301 Village Drive">
-<br>
-Address 2:
-<br>
-<input type="text" id="addr2" placeholder="Address 2(Apt etc)" value="344">
-<br>
-City:
-<br>
-<input type="text" id="city" placeholder="City" value="King of Prussia">
-<br>
-State:
-<br>
-<input type="text" id="state" placeholder="State" value="Pennsylvania">
-<br>
-Zip:
-<br>
-<input type="text" id="zip1" placeholder="Zipcode" value="19406">
-<br>
-<input type="button" onclick="validateAddress()" value="Submit">
-<script>
-var url = 'http://production.shippingapis.com/ShippingAPITest.dll?API=Verify&XML=<AddressValidateRequest USERID="729UHS005798" ><Address ID="0"><Address1>301 Village Drive</Address1><Address2>344</Address2><City>King of Prussia</City><State>PA</State><Zip5>19406</Zip5><Zip4></Zip4></Address></AddressValidateRequest>';
+    <body>
+        <!-- J Query -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- -->
+        <script>src="js/address.js"</script>
+        <input class="addressTextbox" type="text" styler="textbox" id="addr1" name="addr1" value="301 VILLAGE DR" size="57" maxlength="100" onfocus="this.select()">
+        <br>
+        Address 1:
+        <br>
+        <input type="text" id="addr1" placeholder="Address 1" value="301 Village Drive">
+        <br>
+        Address 2:
+        <br>
+        <input type="text" id="addr2" placeholder="Address 2(Apt etc)" value="344">
+        <br>
+        City:
+        <br>
+        <input type="text" id="city" placeholder="City" value="King of Prussia">
+        <br>
+        State:
+        <br>
+        <input type="text" id="state" placeholder="State" value="Pennsylvania">
+        <br>
+        Zip:
+        <br>
+        <input type="text" id="zip1" placeholder="Zipcode" value="19406">
+        <br>
+        <input type="button" onclick="validateAddress()" value="Submit">
+        <script>
+        var url = 'http://production.shippingapis.com/ShippingAPITest.dll?API=Verify&XML=<AddressValidateRequest USERID="729UHS005798" ><Address ID="0"><Address1>301 Village Drive</Address1><Address2>344</Address2><City>King of Prussia</City><State>PA</State><Zip5>19406</Zip5><Zip4></Zip4></Address></AddressValidateRequest>';
 
-function validateAddress() {
-    var addr1 = document.getElementById("addr1").value;
-    var addr2 = document.getElementById("addr2").value;
-    var city = document.getElementById("city").value;
-    var state = document.getElementById("state").value;
-    var zip1 = document.getElementById("zip1").value;
-}
+        function validateAddress() {
+            var addr1 = document.getElementById("addr1").value;
+            var addr2 = document.getElementById("addr2").value;
+            var city = document.getElementById("city").value;
+            var state = document.getElementById("state").value;
+            var zip1 = document.getElementById("zip1").value;
+        }
 
 
-</script>
-</body>
+        </script>
+    </body>
 </html>
