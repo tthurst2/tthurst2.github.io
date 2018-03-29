@@ -29,6 +29,9 @@
         <br>
         <input type="button" onclick="validateAddress()" value="Submit">
         <script>
+        //sample url
+        // var url = 'http://production.shippingapis.com/ShippingAPITest.dll?API=Verify&XML=<AddressValidateRequest USERID="' + user_id + '" ><Address ID="0"><Address1>' + addr1 + '</Address1><Address2>' + addr2 + '</Address2><City>' + city + '</City><State>' + state + '</State><Zip5>' + zip1 + '</Zip5><Zip4></Zip4></Address></AddressValidateRequest>';
+
         var url = 'http://production.shippingapis.com/ShippingAPITest.dll?API=Verify&XML=<AddressValidateRequest USERID="729UHS005798" ><Address ID="0"><Address1>301 Village Drive</Address1><Address2>344</Address2><City>King of Prussia</City><State>PA</State><Zip5>19406</Zip5><Zip4></Zip4></Address></AddressValidateRequest>';
 
         function validateAddress() {
@@ -38,8 +41,24 @@
             var city = document.getElementById("city").value;
             var state = document.getElementById("state").value;
             var zip1 = document.getElementById("zip1").value;
-
+            // url for USPS
             var url = 'http://production.shippingapis.com/ShippingAPITest.dll?API=Verify&XML=<AddressValidateRequest USERID="' + user_id + '" ><Address ID="0"><Address1>' + addr1 + '</Address1><Address2>' + addr2 + '</Address2><City>' + city + '</City><State>' + state + '</State><Zip5>' + zip1 + '</Zip5><Zip4></Zip4></Address></AddressValidateRequest>';
+
+            //creating the XHR
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", url, true);
+
+            xhr.onload = function() {
+                if(this.status == 200 && this.readyState === this.DONE) {
+                    console.log(this.responseText);
+                    console.log(xhr);
+                }
+            }
+            xhr.send(escape(url));
+
+            // handle XHR response
+            
         }
 
 
