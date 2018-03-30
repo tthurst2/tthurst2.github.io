@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html>
+        <head>
+                <meta charset="utf-8"/>
+                <title>Address Testing Page</title>
+                <!-- Bootstrap Link -->
+                <link rel='stylesheet' type='text/css' href='node_modules/bootstrap/dist/css/bootstrap.min.css'>
+                <!-- Bootstrap Optional Theme -->
+                <link rel='stylesheet' type='text/css' href='node_modules/bootstrap/dist/css/bootstrap.css'>
+            </head>
     <body>
         <!-- J Query -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <!-- -->
+        <!-- Future JS -->
         <script>src="js/address.js"</script>
-        <input class="addressTextbox" type="text" styler="textbox" id="addr0" name="addr0" value="301 VILLAGE DR" size="57" maxlength="100" onfocus="this.select()">
+        <!-- DOCUMENT -->
+        <h2>Address API Tester</h2>
         <br>
         Address 1:
         <br>
@@ -52,19 +61,20 @@
             xhr.onload = function() {
                 if(this.status == 200 && this.readyState === this.DONE) {
                     //console.log(this.responseText);
-                    console.log(this.responseText)
+                    var parser = new DOMParser();
+                    var xmlDoc = parser.parseFromString(this.responseText, "text/xml").documentElement;
+                    //console.log(xmlDoc.documentElement.getElementsByTagName("Address1")[0].innerHTML);
+                    /* Populate fields from USPS return */
+                    document.getElementById("addr1").value = xmlDoc.getElementsByTagName("Address1")[0].innerHTML;
+                    document.getElementById("addr2").value = xmlDoc.getElementsByTagName("Address2")[0].innerHTML;
+                    document.getElementById("city").value = xmlDoc.getElementsByTagName("City")[0].innerHTML;
+                    document.getElementById("state").value = xmlDoc.getElementsByTagName("State")[0].innerHTML;
+                    document.getElementById("zip1").value = xmlDoc.getElementsByTagName("Zip5")[0].innerHTML;
                 }
             }
-            xhr.send(escape(url));
-
-            // handle XHR response
-            var parser = new DOMParser();
-            var xmlDoc = parser.parseFromString(xhr.responseText, "text/xml");
-
-            document.getElementById("addr1").value = xmlDoc.getElementsByTagName("state")[0];
+            //send 
+            xhr.send(url);
         }
-
-
         </script>
     </body>
 </html>
