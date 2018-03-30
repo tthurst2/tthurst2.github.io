@@ -73,6 +73,9 @@
                     document.getElementById("zip1").value = xmlDoc.getElementsByTagName("Zip5")[0].innerHTML;
                     $(".inputfield").css("background-color", "PowderBlue");
                 }
+                else {
+                    console.log(this.status);
+                }
             }
             //send 
             xhr.send(url);
