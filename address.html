@@ -18,7 +18,7 @@
         <br>
         Address 1:
         <br>
-        <input type="text" id="addr1" class="inputfield" placeholder="Address 1" value="301 Village Drive">
+        <input type="text" id="addr1" class="inputfield" placeholder="Address 1" value="301 village drive">
         <br>
         Address 2:
         <br>
@@ -26,7 +26,7 @@
         <br>
         City:
         <br>
-        <input type="text" id="city" class="inputfield" placeholder="City" value="King of Prussia">
+        <input type="text" id="city" class="inputfield" placeholder="City" value="king of prussia">
         <br>
         State:
         <br>
@@ -64,27 +64,37 @@
                     console.log(xhr);
                     var parser = new DOMParser();
                     var xmlDoc = parser.parseFromString(this.responseText, "text/xml").documentElement;
+                    console.log(!xmlDoc.getElementsByTagName("addr1").length);
+                    
                     //console.log(xmlDoc.documentElement.getElementsByTagName("Address1")[0].innerHTML);
                     /* Populate fields from USPS return */
                     if(xmlDoc.getElementsByTagName("Error")[0] != null) {
                         alert(xmlDoc.getElementsByTagName("Error")[0].getElementsByTagName("Description")[0].innerHTML);
                     }
-                    else {
-                        if(xmlDoc.getElementsByTagName("ReturnText")[0] != null) {
-                            alert(xmlDoc.getElementsByTagName("ReturnText")[0].innerHTML);
+                    else if(xmlDoc.getElementsByTagName("ReturnText")[0] != null) {
+                            alert(!xmlDoc.getElementsByTagName("ReturnText")[0].innerHTML);
                         }
-                        else {
-                        document.getElementById("addr1").value = xmlDoc.getElementsByTagName("Address1")[0].innerHTML;
-                        document.getElementById("addr2").value = xmlDoc.getElementsByTagName("Address2")[0].innerHTML;
-                        document.getElementById("city").value = xmlDoc.getElementsByTagName("City")[0].innerHTML;
+                    else {
+                        //if the tag exists
+                        if(xmlDoc.getElementsByTagName("Address1").length)
+                            document.getElementById("addr1").value = xmlDoc.getElementsByTagName("Address1")[0].innerHTML;   
+                        else document.getElementById("addr1").value = "";
+                        if(xmlDoc.getElementsByTagName("Address2").length)
+                            document.getElementById("addr2").value = xmlDoc.getElementsByTagName("Address2")[0].innerHTML;
+                            else document.getElementById("addr2").value = "";  
+                        //simple checks  
+                        if(xmlDoc.getElementsByTagName("City").length) {
+                            document.getElementById("city").value = xmlDoc.getElementsByTagName("City")[0].innerHTML;
+                        }
+                        if(xmlDoc.getElementsByTagName("State").length) {
                         document.getElementById("state").value = xmlDoc.getElementsByTagName("State")[0].innerHTML;
+                        }
+                        if(xmlDoc.getElementsByTagName("Zip5").length) {
                         document.getElementById("zip1").value = xmlDoc.getElementsByTagName("Zip5")[0].innerHTML;
+                        }
                         $(".inputfield").css("background-color", "PowderBlue");
                         }
-                    }   
-                }
-                else {
-                    console.log(this.status);
+                              
                 }
             }
             //send 
