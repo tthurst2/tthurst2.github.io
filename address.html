@@ -61,17 +61,27 @@
 
             xhr.onload = function() {
                 if(this.status == 200 && this.readyState === this.DONE) {
-                    //console.log(this.responseText);
+                    console.log(xhr);
                     var parser = new DOMParser();
                     var xmlDoc = parser.parseFromString(this.responseText, "text/xml").documentElement;
                     //console.log(xmlDoc.documentElement.getElementsByTagName("Address1")[0].innerHTML);
                     /* Populate fields from USPS return */
-                    document.getElementById("addr1").value = xmlDoc.getElementsByTagName("Address1")[0].innerHTML;
-                    document.getElementById("addr2").value = xmlDoc.getElementsByTagName("Address2")[0].innerHTML;
-                    document.getElementById("city").value = xmlDoc.getElementsByTagName("City")[0].innerHTML;
-                    document.getElementById("state").value = xmlDoc.getElementsByTagName("State")[0].innerHTML;
-                    document.getElementById("zip1").value = xmlDoc.getElementsByTagName("Zip5")[0].innerHTML;
-                    $(".inputfield").css("background-color", "PowderBlue");
+                    if(xmlDoc.getElementsByTagName("Error")[0] != null) {
+                        alert(xmlDoc.getElementsByTagName("Error")[0].getElementsByTagName("Description")[0].innerHTML);
+                    }
+                    else {
+                        if(xmlDoc.getElementsByTagName("ReturnText")[0] != null) {
+                            alert(xmlDoc.getElementsByTagName("ReturnText")[0].innerHTML);
+                        }
+                        else {
+                        document.getElementById("addr1").value = xmlDoc.getElementsByTagName("Address1")[0].innerHTML;
+                        document.getElementById("addr2").value = xmlDoc.getElementsByTagName("Address2")[0].innerHTML;
+                        document.getElementById("city").value = xmlDoc.getElementsByTagName("City")[0].innerHTML;
+                        document.getElementById("state").value = xmlDoc.getElementsByTagName("State")[0].innerHTML;
+                        document.getElementById("zip1").value = xmlDoc.getElementsByTagName("Zip5")[0].innerHTML;
+                        $(".inputfield").css("background-color", "PowderBlue");
+                        }
+                    }   
                 }
                 else {
                     console.log(this.status);
