@@ -18,7 +18,7 @@
         <br>
         Address 1:
         <br>
-        <input type="text" id="addr1" class="inputfield" placeholder="Address 1" value="301 village drive#">
+        <input type="text" id="addr1" class="inputfield" placeholder="Address 1" value="301 village drive">
         <br>
         Address 2:
         <br>
@@ -63,14 +63,14 @@
                 if(this.status == 200 && this.readyState === this.DONE) {
                     var parser = new DOMParser();
                     var xmlDoc = parser.parseFromString(this.responseText, "text/xml");    
-                    //console.log(xmlDoc.getElementsByTagName("Description")[0]);         
-                    console.log(xmlDoc);
+                    //console.log(xhr);        
+                    //console.log(xmlDoc);
                     /* Populate fields from USPS return */
                     if(xmlDoc.getElementsByTagName("Error")[0] != null) {
                         alert(xmlDoc.getElementsByTagName("Description")[0].innerHTML);
                     }
                     else if(xmlDoc.getElementsByTagName("ReturnText")[0] != null) {
-                            alert(!xmlDoc.getElementsByTagName("ReturnText")[0].innerHTML);
+                            alert(xmlDoc.getElementsByTagName("ReturnText")[0].innerHTML);
                         }
                     else {
                         //if the tag exists
