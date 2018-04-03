@@ -44,7 +44,8 @@
         var url = 'http://production.shippingapis.com/ShippingAPITest.dll?API=Verify&XML=<AddressValidateRequest USERID="729UHS005798" ><Address ID="0"><Address1>301 Village Drive</Address1><Address2>344</Address2><City>King of Prussia</City><State>PA</State><Zip5>19406</Zip5><Zip4></Zip4></Address></AddressValidateRequest>';
 
         function validateAddress() {
-            var user_id = "729UHS005798"
+            var user_id = "729UHS005798";
+            var schemeHost = "https://secure.shippingapis.com";
             var addr1 = "<![CDATA[" + document.getElementById("addr1").value + "]]>";
             var addr2 = "<![CDATA[" + document.getElementById("addr2").value + "]]>";
             var city = document.getElementById("city").value;
@@ -52,7 +53,7 @@
             var zip1 = document.getElementById("zip1").value;
             //change colors for niceness
             // url for USPS
-            var url = 'https://secure.shippingapis.com/ShippingAPITest.dll?API=Verify&XML=<AddressValidateRequest USERID="' + user_id + '" ><Address ID="0"><Address1>' + addr1 + '</Address1><Address2>' + addr2 + '</Address2><City>' + city + '</City><State>' + state + '</State><Zip5>' + zip1 + '</Zip5><Zip4></Zip4></Address></AddressValidateRequest>';
+            var url = schemeHost + '/ShippingAPITest.dll?API=Verify&XML=<AddressValidateRequest USERID="' + user_id + '" ><Address ID="0"><Address1>' + addr1 + '</Address1><Address2>' + addr2 + '</Address2><City>' + city + '</City><State>' + state + '</State><Zip5>' + zip1 + '</Zip5><Zip4></Zip4></Address></AddressValidateRequest>';
 
             //creating the XHR
 
@@ -63,7 +64,7 @@
                 if(this.status == 200 && this.readyState === this.DONE) {
                     var parser = new DOMParser();
                     var xmlDoc = parser.parseFromString(this.responseText, "text/xml");    
-                    //console.log(xhr);        
+                    console.log(xhr);        
                     //console.log(xmlDoc);
                     /* Populate fields from USPS return */
                     if(xmlDoc.getElementsByTagName("Error")[0] != null) {
