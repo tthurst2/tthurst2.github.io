@@ -43,7 +43,7 @@
             //change colors for niceness
             // url for USPS
             var url = schemeHost + '/ShippingAPITest.dll?API=Verify&XML=<AddressValidateRequest USERID="' + user_id + '" ><Address ID="0"><Address1>' + addr1 + '</Address1><Address2>' + addr2 + '</Address2><City>' + city + '</City><State>' + state + '</State><Zip5>' + zip1 + '</Zip5><Zip4></Zip4></Address></AddressValidateRequest>';
-            console.log(inputParse.parseFromString(fullURL, "text/xml"));
+            //console.log(inputParse.parseFromString(fullURL, "text/xml"));
             
             //creating the XHR
             xhr.open("POST", url, true);
