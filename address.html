@@ -31,8 +31,8 @@
         function validateAddress() {
             var user_id = "729UHS005798";
             var schemeHost = "https://secure.shippingapis.com";
-            var addr1 = "<![CDATA[" + document.getElementById("addr1").value + "]]>";
-            var addr2 = "<![CDATA[" + document.getElementById("addr2").value + "]]>";
+            var addr1 = document.getElementById("addr1").value;
+            var addr2 = document.getElementById("addr2").value;
             var city = document.getElementById("city").value;
             var state = document.getElementById("state").value;
             var zip1 = document.getElementById("zip1").value;
