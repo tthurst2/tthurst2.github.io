@@ -36,11 +36,15 @@
             var city = document.getElementById("city").value;
             var state = document.getElementById("state").value;
             var zip1 = document.getElementById("zip1").value;
+            var fullURL = 'https://secure.shippingapis.com/ShippingAPITest.dll?API=Verify&XML=<AddressValidateRequest USERID="729UHS005798" ><Address ID="0"><Address1>301 Village Drive</Address1><Address2>344</Address2><City>King of Prussia</City><State>PA</State><Zip5>19406</Zip5><Zip4></Zip4></Address></AddressValidateRequest>'
             /* Object to get USPS informatoin */
             var xhr = new XMLHttpRequest();
+            var inputParse = new DOMParser();
             //change colors for niceness
             // url for USPS
             var url = schemeHost + '/ShippingAPITest.dll?API=Verify&XML=<AddressValidateRequest USERID="' + user_id + '" ><Address ID="0"><Address1>' + addr1 + '</Address1><Address2>' + addr2 + '</Address2><City>' + city + '</City><State>' + state + '</State><Zip5>' + zip1 + '</Zip5><Zip4></Zip4></Address></AddressValidateRequest>';
+            console.log(inputParse.parseFromString(fullURL, "text/xml"));
+            
             //creating the XHR
             xhr.open("POST", url, true);
             // handle response
@@ -48,7 +52,7 @@
                 if(this.status == 200 && this.readyState === this.DONE) {
                     var parser = new DOMParser();
                     var xmlDoc = parser.parseFromString(this.responseText, "text/xml");    
-                    console.log(xhr);        
+                    //console.log(xhr);        
                     //console.log(xmlDoc);
                     /* Populate fields from USPS return */
                     if(xmlDoc.getElementsByTagName("Error")[0] != null) {
@@ -84,9 +88,9 @@
             xhr.send(url);
         }
 
-        /* Function to create XML request tags and bodies */
+        /* Function to create XML request tags and bodies... maybe */
         function createRequest()  {
-
+            var xmlReq = '';
         }
         </script>
     </body>
