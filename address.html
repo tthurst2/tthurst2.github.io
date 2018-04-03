@@ -60,7 +60,7 @@
             var xhr = new XMLHttpRequest();
             xhr.open("POST", url, true);
 
-            xhr.onload = function() {
+            xhr.onreadystatechange = function() {
                 if(this.status == 200 && this.readyState === this.DONE) {
                     var parser = new DOMParser();
                     var xmlDoc = parser.parseFromString(this.responseText, "text/xml");    
