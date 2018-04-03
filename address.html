@@ -1,47 +1,32 @@
 <!DOCTYPE html>
 <html>
         <head>
-                <meta charset="utf-8"/>
-                <title>Address Testing Page</title>
-                <!-- Bootstrap Link -->
-                <link rel='stylesheet' type='text/css' href='node_modules/bootstrap/dist/css/bootstrap.min.css'>
-                <!-- Bootstrap Optional Theme -->
-                <link rel='stylesheet' type='text/css' href='node_modules/bootstrap/dist/css/bootstrap.css'>
-            </head>
+            <meta charset="utf-8"/>
+            <title>Address Testing Page</title>
+            <!-- Bootstrap Link -->
+            <link rel='stylesheet' type='text/css' href='node_modules/bootstrap/dist/css/bootstrap.min.css'>
+            <!-- Bootstrap Optional Theme -->
+            <link rel='stylesheet' type='text/css' href='node_modules/bootstrap/dist/css/bootstrap.css'>
+        </head>
     <body>
         <!-- J Query -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!-- Future JS -->
         <script>src="js/address.js"</script>
         <!-- DOCUMENT -->
-        <h2>Address API Tester</h2>
-        <br>
-        Address 1:
-        <br>
-        <input type="text" id="addr1" class="inputfield" placeholder="Address 1" value="301 village drive">
-        <br>
-        Address 2:
-        <br>
-        <input type="text" id="addr2" class="inputfield" placeholder="Address 2(Apt etc)" value="344">
-        <br>
-        City:
-        <br>
-        <input type="text" id="city" class="inputfield" placeholder="City" value="king of prussia">
-        <br>
-        State:
-        <br>
-        <input type="text" id="state" class="inputfield" placeholder="State" value="Pennsylvania">
-        <br>
-        Zip:
-        <br>
-        <input type="text" id="zip1" class="inputfield" placeholder="Zipcode" value="19406">
-        <br>
+        <h2>Address API Tester</h2><br>
+        Address 1:<br>
+        <input type="text" id="addr1" class="inputfield" placeholder="Address 1" value="301 village drive"><br>
+        Address 2:<br>
+        <input type="text" id="addr2" class="inputfield" placeholder="Address 2(Apt etc)" value="344"><br>
+        City:<br>
+        <input type="text" id="city" class="inputfield" placeholder="City" value="king of prussia"><br>
+        State:<br>
+        <input type="text" id="state" class="inputfield" placeholder="State" value="Pennsylvania"><br>
+        Zip:<br>
+        <input type="text" id="zip1" class="inputfield" placeholder="Zipcode" value="19406"><br>
         <input type="button" onclick="validateAddress()" value="Validate">
         <script>
-        //sample url
-        // var url = 'http://production.shippingapis.com/ShippingAPITest.dll?API=Verify&XML=<AddressValidateRequest USERID="' + user_id + '" ><Address ID="0"><Address1>' + addr1 + '</Address1><Address2>' + addr2 + '</Address2><City>' + city + '</City><State>' + state + '</State><Zip5>' + zip1 + '</Zip5><Zip4></Zip4></Address></AddressValidateRequest>';
-
-        var url = 'http://production.shippingapis.com/ShippingAPITest.dll?API=Verify&XML=<AddressValidateRequest USERID="729UHS005798" ><Address ID="0"><Address1>301 Village Drive</Address1><Address2>344</Address2><City>King of Prussia</City><State>PA</State><Zip5>19406</Zip5><Zip4></Zip4></Address></AddressValidateRequest>';
 
         function validateAddress() {
             var user_id = "729UHS005798";
@@ -56,12 +41,9 @@
             //change colors for niceness
             // url for USPS
             var url = schemeHost + '/ShippingAPITest.dll?API=Verify&XML=<AddressValidateRequest USERID="' + user_id + '" ><Address ID="0"><Address1>' + addr1 + '</Address1><Address2>' + addr2 + '</Address2><City>' + city + '</City><State>' + state + '</State><Zip5>' + zip1 + '</Zip5><Zip4></Zip4></Address></AddressValidateRequest>';
-
             //creating the XHR
-
-            
             xhr.open("POST", url, true);
-
+            // handle response
             xhr.onreadystatechange = function() {
                 if(this.status == 200 && this.readyState === this.DONE) {
                     var parser = new DOMParser();
@@ -100,6 +82,11 @@
             }
             //send 
             xhr.send(url);
+        }
+
+        /* Function to create XML request tags and bodies */
+        function createRequest()  {
+
         }
         </script>
     </body>
