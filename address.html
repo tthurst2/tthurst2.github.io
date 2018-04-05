@@ -31,11 +31,11 @@
         function validateAddress() {
             var user_id = "729UHS005798";
             var schemeHost = "https://secure.shippingapis.com";
-            var addr1 = encodeURIComponent(escapeXml(document.getElementById("addr1").value));
-            var addr2 = encodeURIComponent(escapeXml(document.getElementById("addr2").value));
-            var city = encodeURIComponent(escapeXml(document.getElementById("city").value));
-            var state = encodeURIComponent(escapeXml(document.getElementById("state").value));
-            var zip1 = encodeURIComponent(escapeXml(document.getElementById("zip1").value));
+            var addr1 = encodeURIComponent(escapeXML(document.getElementById("addr1").value));
+            var addr2 = encodeURIComponent(escapeXML(document.getElementById("addr2").value));
+            var city = encodeURIComponent(escapeXML(document.getElementById("city").value));
+            var state = encodeURIComponent(escapeXML(document.getElementById("state").value));
+            var zip1 = encodeURIComponent(escapeXML(document.getElementById("zip1").value));
             var fullURL = 'https://secure.shippingapis.com/ShippingAPITest.dll?API=Verify&XML=<AddressValidateRequest USERID="729UHS005798"><Address ID="0"><Address1>301 Village Drive</Address1><Address2>344</Address2><City>King of Prussia</City><State>PA</State><Zip5>19406</Zip5><Zip4></Zip4></Address></AddressValidateRequest>'
             var sampleURL='https://secure.shippingapis.com/ShippingAPITest.dll?API=Verify&XML=<AddressValidateRequest USERID="729UHS005798"><Address ID="0"> <Address1></Address1> <Address2>29851 Aventura #k</Address2> <City></City> <State>CA</State> <Zip5>92688</Zip5> <Zip4></Zip4> </Address> </AddressValidateRequest>';
             /* Object to get USPS informatoin */
@@ -85,7 +85,7 @@
                               
                 }
             }
-            function escapeXml(needEsc) {
+            function escapeXML(needEsc) {
                 return needEsc.replace(/[<>&'"]/g, function (c) {
                     switch (c) {
                         case '<': return '&lt;';
