@@ -16,7 +16,7 @@
         <!-- DOCUMENT -->
         <h2>Address API Tester</h2><br>
         Address 1:<br>
-        <input type="text" name="addr1" id="addr1" class="inputfield" placeholder="Address 1" value="301village drive"><br>
+        <input type="text" name="addr1" id="addr1" class="inputfield" placeholder="Address 1" value="301 village drive"><br>
         Address 2:<br>
         <input type="text" name="addr2" id="addr2" class="inputfield" placeholder="Address 2(Apt etc)" value="333"><br>
         City:<br>
@@ -85,7 +85,7 @@
                         if(xmlDoc.getElementsByTagName("Zip5").length) {
                         document.getElementById("zip1").value = xmlDoc.getElementsByTagName("Zip5")[0].textContent;
                         }
-                        $(".inputfield").css("background-color", "PowderBlue");
+                        //$(".inputfield").css("background-color", "PowderBlue");
                         }
                               
                 }
