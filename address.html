@@ -71,20 +71,20 @@
                     else {
                         //if the tag exists
                         if(xmlDoc.getElementsByTagName("Address1").length)
-                            document.getElementById("addr1").value = xmlDoc.getElementsByTagName("Address1")[0].firstChild.textContent;   
+                            document.getElementById("addr1").value = xmlDoc.getElementsByTagName("Address1")[0].textContent;   
                         else document.getElementById("addr1").value = "";
                         if(xmlDoc.getElementsByTagName("Address2").length)
-                            document.getElementById("addr2").value = xmlDoc.getElementsByTagName("Address2")[0].firstChild.textContent;
+                            document.getElementById("addr2").value = xmlDoc.getElementsByTagName("Address2")[0].textContent;
                             else document.getElementById("addr2").value = "";  
                         //simple checks  
                         if(xmlDoc.getElementsByTagName("City").length) {
-                            document.getElementById("city").value = xmlDoc.getElementsByTagName("City")[0].firstChild.textContent;
+                            document.getElementById("city").value = xmlDoc.getElementsByTagName("City")[0].textContent;
                         }
                         if(xmlDoc.getElementsByTagName("State").length) {
-                        document.getElementById("state").value = xmlDoc.getElementsByTagName("State")[0].firstChild.textContent;
+                        document.getElementById("state").value = xmlDoc.getElementsByTagName("State")[0].textContent;
                         }
                         if(xmlDoc.getElementsByTagName("Zip5").length) {
-                        document.getElementById("zip1").value = xmlDoc.getElementsByTagName("Zip5")[0].firstChild.textContent;
+                        document.getElementById("zip1").value = xmlDoc.getElementsByTagName("Zip5")[0].textContent;
                         }
                         $(".inputfield").css("background-color", "PowderBlue");
                         }
