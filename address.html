@@ -16,15 +16,15 @@
         <!-- DOCUMENT -->
         <h2>Address API Tester</h2><br>
         Address 1:<br>
-        <input type="text" id="addr1" class="inputfield" placeholder="Address 1" value="301 village drive"><br>
+        <input type="text" name="addr1" id="addr1" class="inputfield" placeholder="Address 1" value="301 village drive"><br>
         Address 2:<br>
-        <input type="text" id="addr2" class="inputfield" placeholder="Address 2(Apt etc)" value="344"><br>
+        <input type="text" name="addr2" id="addr2" class="inputfield" placeholder="Address 2(Apt etc)" value="344"><br>
         City:<br>
-        <input type="text" id="city" class="inputfield" placeholder="City" value="king of prussia"><br>
+        <input type="text" name="city" id="city" class="inputfield" placeholder="City" value="king of prussia"><br>
         State:<br>
-        <input type="text" id="state" class="inputfield" placeholder="State" value="Pennsylvania"><br>
+        <input type="text" name="state" id="state" class="inputfield" placeholder="State" value="Pennsylvania"><br>
         Zip:<br>
-        <input type="text" id="zip1" class="inputfield" placeholder="Zipcode" value="19406"><br>
+        <input type="text" name="zip1" id="zip1" class="inputfield" placeholder="Zipcode" value="19406"><br>
         <input type="button" onclick="validateAddress()" value="Validate">
         <script>
 
@@ -39,13 +39,19 @@
             var fullURL = 'https://secure.shippingapis.com/ShippingAPITest.dll?API=Verify&XML=<AddressValidateRequest USERID="729UHS005798"><Address ID="0"><Address1>301 Village Drive</Address1><Address2>344</Address2><City>King of Prussia</City><State>PA</State><Zip5>19406</Zip5><Zip4></Zip4></Address></AddressValidateRequest>'
             var sampleURL='https://secure.shippingapis.com/ShippingAPITest.dll?API=Verify&XML=<AddressValidateRequest USERID="729UHS005798"><Address ID="0"> <Address1></Address1> <Address2>29851 Aventura #k</Address2> <City></City> <State>CA</State> <Zip5>92688</Zip5> <Zip4></Zip4> </Address> </AddressValidateRequest>';
             /* Object to get USPS informatoin */
-            var xhr = new XMLHttpRequest();
+            var xhr;
+            if (window.XMLHttpRequest) {
+                // IE7+, Firefox, Chrome, Opera, Safari
+                xhr = new XMLHttpRequest();
+            }
+            else {
+                //IE5, IE6
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            }
             var inputParse = new DOMParser();
             //change colors for niceness
             // url for USPS
             var url = schemeHost + '/ShippingAPITest.dll?API=Verify&XML=<AddressValidateRequest USERID="' + user_id + '"><Address ID="0"><Address1>' + addr1 + '</Address1><Address2>' + addr2 + '</Address2><City>' + city + '</City><State>' + state + '</State><Zip5>' + zip1 + '</Zip5><Zip4></Zip4></Address></AddressValidateRequest>';
-            //console.log(inputParse.parseFromString(fullURL, "text/xml"));
-            console.log(addr1);
             //creating the XHR
             xhr.open("POST", url, true);
             // handle response
@@ -53,7 +59,7 @@
                 if(this.status == 200 && this.readyState === this.DONE) {
                     var parser = new DOMParser();
                     var xmlDoc = parser.parseFromString(this.responseText, "text/xml");    
-                    console.log(xhr);        
+                    //console.log(xhr);        
                     //console.log(xmlDoc);
                     /* Populate fields from USPS return */
                     if(xmlDoc.getElementsByTagName("Error")[0] != null) {
@@ -65,20 +71,20 @@
                     else {
                         //if the tag exists
                         if(xmlDoc.getElementsByTagName("Address1").length)
-                            document.getElementById("addr1").value = xmlDoc.getElementsByTagName("Address1")[0].innerHTML;   
+                            document.getElementById("addr1").value = xmlDoc.getElementsByTagName("Address1")[0].firstChild.textContent;   
                         else document.getElementById("addr1").value = "";
                         if(xmlDoc.getElementsByTagName("Address2").length)
-                            document.getElementById("addr2").value = xmlDoc.getElementsByTagName("Address2")[0].innerHTML;
+                            document.getElementById("addr2").value = xmlDoc.getElementsByTagName("Address2")[0].firstChild.textContent;
                             else document.getElementById("addr2").value = "";  
                         //simple checks  
                         if(xmlDoc.getElementsByTagName("City").length) {
-                            document.getElementById("city").value = xmlDoc.getElementsByTagName("City")[0].innerHTML;
+                            document.getElementById("city").value = xmlDoc.getElementsByTagName("City")[0].firstChild.textContent;
                         }
                         if(xmlDoc.getElementsByTagName("State").length) {
-                        document.getElementById("state").value = xmlDoc.getElementsByTagName("State")[0].innerHTML;
+                        document.getElementById("state").value = xmlDoc.getElementsByTagName("State")[0].firstChild.textContent;
                         }
                         if(xmlDoc.getElementsByTagName("Zip5").length) {
-                        document.getElementById("zip1").value = xmlDoc.getElementsByTagName("Zip5")[0].innerHTML;
+                        document.getElementById("zip1").value = xmlDoc.getElementsByTagName("Zip5")[0].firstChild.textContent;
                         }
                         $(".inputfield").css("background-color", "PowderBlue");
                         }
