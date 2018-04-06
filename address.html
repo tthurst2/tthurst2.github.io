@@ -49,7 +49,6 @@
                 xhr = new ActiveXObject("Microsoft.XMLHTTP");
             }
             var inputParse = new DOMParser();
-            //change colors for niceness
             // url for USPS
             var url = schemeHost + '/ShippingAPITest.dll?API=Verify&XML=<AddressValidateRequest USERID="' + user_id + '"><Address ID="0"><Address1>' + addr1 + '</Address1><Address2>' + addr2 + '</Address2><City>' + city + '</City><State>' + state + '</State><Zip5>' + zip1 + '</Zip5><Zip4></Zip4></Address></AddressValidateRequest>';
             //creating the XHR
@@ -63,10 +62,10 @@
                     //console.log(xmlDoc);
                     /* Populate fields from USPS return */
                     if(xmlDoc.getElementsByTagName("Error")[0] != null) {
-                        alert(xmlDoc.getElementsByTagName("Description")[0].innerHTML);
+                        alert(xmlDoc.getElementsByTagName("Description")[0].textContent);
                     }
                     else if(xmlDoc.getElementsByTagName("ReturnText")[0] != null) {
-                            alert(xmlDoc.getElementsByTagName("ReturnText")[0].innerHTML);
+                            alert(xmlDoc.getElementsByTagName("ReturnText")[0].textContent);
                         }
                     else {
                         //if the tag exists
