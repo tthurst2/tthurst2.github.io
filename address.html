@@ -9,8 +9,6 @@
         <link rel='stylesheet' type='text/css' href='node_modules/bootstrap/dist/css/bootstrap.css'>
     </head>
     <body>
-        <!-- J Query -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!-- Future JS -->
         <script>src="js/address.js"</script>
         <!-- DOCUMENT -->
@@ -86,7 +84,11 @@
                         if(xmlDoc.getElementsByTagName("Zip5").length) {
                         document.getElementById("zip1").value = xmlDoc.getElementsByTagName("Zip5")[0].textContent;
                         }
-                        $(".inputfield").css("background-color", "PowderBlue");
+                        //iterate through input fields to give them a nice color
+                        var inputfield = document.getElementsByClassName("inputfield");
+                        for (var i = 0; i < inputfield.length; i++) {
+                            inputfield[i].style.backgroundColor = "PowderBlue";
+                        }
                     }          
                 }
             }
