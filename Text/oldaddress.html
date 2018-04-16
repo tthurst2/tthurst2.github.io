@@ -9,6 +9,8 @@
         <link rel='stylesheet' type='text/css' href='node_modules/bootstrap/dist/css/bootstrap.css'>
     </head>
     <body>
+        <!-- Future JS -->
+        <script>src="js/address.js"</script>
         <!-- DOCUMENT -->
         <h2>Address API Tester</h2><br>
         Address 1:<br>
@@ -32,6 +34,8 @@
             var city = encodeURIComponent(escapeXML(document.getElementById("city").value));
             var state = encodeURIComponent(escapeXML(document.getElementById("state").value));
             var zip1 = encodeURIComponent(escapeXML(document.getElementById("zip1").value));
+            var fullURL = 'https://secure.shippingapis.com/ShippingAPITest.dll?API=Verify&XML=<AddressValidateRequest USERID="729UHS005798"><Address ID="0"><Address1>301 Village Drive</Address1><Address2>344</Address2><City>King of Prussia</City><State>PA</State><Zip5>19406</Zip5><Zip4></Zip4></Address></AddressValidateRequest>'
+            var sampleURL='https://secure.shippingapis.com/ShippingAPITest.dll?API=Verify&XML=<AddressValidateRequest USERID="729UHS005798"><Address ID="0"> <Address1></Address1> <Address2>29851 Aventura #k</Address2> <City></City> <State>CA</State> <Zip5>92688</Zip5> <Zip4></Zip4> </Address> </AddressValidateRequest>';
             /* Object to get USPS informatoin */
             var xhr;
             if (window.XMLHttpRequest) {
@@ -42,7 +46,7 @@
                 //IE5, IE6
                 xhr = new ActiveXObject("Microsoft.XMLHTTP");
             }
-            //DOMParser is only IE9+
+                //DOMParser is only IE9+
             var inputParse = new DOMParser();
             // url for USPS
             var url = schemeHost + '/ShippingAPITest.dll?API=Verify&XML=<AddressValidateRequest USERID="' + user_id + '"><Address ID="0"><Address1>' + addr1 + '</Address1><Address2>' + addr2 + '</Address2><City>' + city + '</City><State>' + state + '</State><Zip5>' + zip1 + '</Zip5><Zip4></Zip4></Address></AddressValidateRequest>';
@@ -53,6 +57,8 @@
                 if(this.readyState === this.DONE && this.status == 200) {
                     var parser = new DOMParser();
                     var xmlDoc = parser.parseFromString(this.responseText, "text/xml");    
+                    //console.log(xhr);        
+                    //console.log(xmlDoc);
                     /* Populate fields from USPS return */
                     if(xmlDoc.getElementsByTagName("Error")[0] != null) {
                         alert(xmlDoc.getElementsByTagName("Description")[0].textContent);
@@ -99,7 +105,10 @@
             }
             //send 
             xhr.send(url);
-        }               
+        }
+
+        /* Function to create XML request tags and bodies... maybe */
+               
         </script>
     </body>
 </html>
