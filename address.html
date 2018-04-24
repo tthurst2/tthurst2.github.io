@@ -26,6 +26,7 @@
         <script>
 
         function validateAddress() {
+            var user_key = config.API_KEY;
             var user_id = "729UHS005798";
             var schemeHost = "https://secure.shippingapis.com";
             var addr1 = encodeURIComponent(escapeXML(document.getElementById("addr1").value));
