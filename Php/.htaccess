@@ -1,1 +1,1 @@
-IndexIgnore *
+ErrorDocument 404 /Php/*.php
