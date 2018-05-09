@@ -1,25 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head>
-        <meta charset="utf-8"/>
-        <title>Tyler Thurston</title>
-        <!-- Bootstrap Link -->
-        <link rel='stylesheet' type='text/css' href='node_modules\bootstrap\dist\css\bootstrap.min.css'>
+        <title>Bootstrap Layouts</title>
+        <link rel="stylesheet" href="css/style.css">
+        <!-- Latest compiled and minified CSS-->
+        <link rel="stylesheet" href="node_modules\bootstrap\dist\css\bootstrap.min.css">
         <!-- Bootstrap Optional Theme -->
-        <link rel='stylesheet' type='text/css' href='node_modules\bootstrap\dist\css\bootstrap.css'>
+        <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="css/index.css">
     </head>
-    <body> 
-        <center><h1>Tyler Thurston</h1></center>
-        <p>Computer Science Graduate</p>
-        <br><br>
-        <IMG ALIGN=left SRC="images/profile.png">
-        <p></p>
-        <!-- Javascript files should be linked at the bottom of the page -->
-        <!-- This is so it will feel responsive, loading quicker, and the functionality will be slightly after-->
-        <script src='node_modules/jquery/dist/jquery.min.js'></script>
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <body>
+       <!-- Navbar begin-->
+       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Tyler Thurston</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon" ></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Resume</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Projects
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="address.html">API Verification BETA</a>
+                  </div>
+                </li>>
+              </ul>
+            </div>
+          </nav>
 
+
+
+        <!-- Navbar end-->
+        <div class="container">
+          <div class="row">
+            <div class="darkBG col-sm-6 col-12">test</div>
+            <div class="darkerBG col-sm-3 col-6">test2</div>
+            <div class="darkestBG col-sm-3 col-6">test3</div>
+          </div>
+        </div>
+        <!-- Site Information-->
+        <h1>Tyler Thurston</h1>
+        <h5>Computer Scientist / Data Architect</h5>
+        <IMG src="images/profile.png" style="max-height: 250px; max-width: 250px" align=left>
+        <p></p>
+
+
+      <script src="node_modules/jquery/dist/jquery.min.js"></script>
+      <!-- Latest compiled and minified Javascript -->  
+      <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     </body>
 </html>
