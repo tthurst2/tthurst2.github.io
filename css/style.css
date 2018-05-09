@@ -1,1 +1,13 @@
 body {background-color: whitesmoke}
+.darkBG {
+    background: #999
+}
+
+.darkerBG {
+    background: #666
+}
+
+.darkestBG {
+    background: #333;
+    color: #fff
+}
