@@ -1,5 +1,45 @@
 <html>
+<head>
+        <!-- Bootstrap Link -->
+        <link rel='stylesheet' type='text/css' href='/node_modules/bootstrap/dist/css/bootstrap.min.css'>
+        <!-- Bootstrap Optional Theme -->
+        <link rel='stylesheet' type='text/css' href='/node_modules/bootstrap/dist/css/bootstrap.css'>
+</head>
 <body bgcolor="black">
+        <!-- Navbar begin-->
+       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="/index.html">Tyler Thurston</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon" ></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Resume</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Hobbies</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Projects
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="/Projects/fire.html">Fire Graphics BETA</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/Projects/address.html">API Verification BETA</a>
+                      </div>
+                    </li>>
+                  </ul>
+                </div>
+              </nav>
+            <!-- Navbar end-->
+
 <canvas id="myCanvas" width="1000" height="800"></canvas><br>
  
 <script>
