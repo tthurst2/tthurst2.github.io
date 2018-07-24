@@ -67,7 +67,7 @@ function burn() {
         for(let i=width*4; i<width*height; i++) {        // now we're drawing the fire on the screen
                 context.beginPath();        // convert the index value i to screen coordinates and draw a box
                 context.rect((i%width)*10, (height-Math.floor(i/width))*10, 10, 10);
-                context.fillStyle ='rgb(0,' + fire[i]+ ','+fire[i]+')'; // the red component of the RGB color is the value of the cell.
+                context.fillStyle ='rgb(' + fire[i] + ',' + fire[i]+ ','+fire[i]+')'; // the red component of the RGB color is the value of the cell.
                  context.fill();
                 }
         window.requestAnimationFrame(burn);
