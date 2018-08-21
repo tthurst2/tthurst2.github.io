@@ -1,7 +1,3 @@
-TDS 1.01
+Very basic version of the game, 8-way controls, updated to new UI and added third shot type(Uzi/high fire rate high spread). 
 
-
-A simple Top Down Shooter - it's super basic and is mostly for testing unity's capabilities to be hosted online with the webgl framework.
-
-1.01 - Added restart button, and game over text. 
-- Reworked Score and Lives to new UI from Legacy UI system.
+Implemented very crude weapon swap system(TODO: improve this)
