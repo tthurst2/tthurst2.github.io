@@ -1,9 +1,9 @@
 {
 "companyName": "DefaultCompany",
 "productName": "TDS",
-"dataUrl": "WebGL Demo 1,04.data.unityweb",
-"wasmCodeUrl": "WebGL Demo 1,04.wasm.code.unityweb",
-"wasmFrameworkUrl": "WebGL Demo 1,04.wasm.framework.unityweb",
+"dataUrl": "WebGL Demo 1.04.data.unityweb",
+"wasmCodeUrl": "WebGL Demo 1.04.wasm.code.unityweb",
+"wasmFrameworkUrl": "WebGL Demo 1.04.wasm.framework.unityweb",
 "TOTAL_MEMORY": 268435456,
 "graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
 "webglContextAttributes": {"preserveDrawingBuffer": false},
