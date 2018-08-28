@@ -1,9 +1,9 @@
-Version 1.03:
+Version 1.04:
 
-Implemented a fourth weapon, with delayed bullet instantiation on death(a "bomb").
+Fully clickable and updated weapon UI.
 
-Added a basic hard-coded UI using the Unity UI system to display the weapon switching of keys 1-4.
+Internal inventory and player ship components reworked to provide for UI updates.
 
-Generally optomized prefab storage with the inventory object singleton.
+Dynamically updating weapon list to what is in your inventory.
 
-HotFix: WeaponPane bug fixed to correct vertical height in different aspect ratios
+TODO: Dynamically update UI with stats based on inventory(current hardcoded).
