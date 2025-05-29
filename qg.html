@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Bootstrap Optional Theme -->
+    <link rel="stylesheet" type="text/css" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Gauntlet</title>
+
+</head>
+  <!-- Navbar -->
+  <div id="content"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $('#content').load('navbar.html');
+    </script>  
+<body>
+  <h1>Quantum Gauntlet</h1>
+  <p><a class="play-link" href="https://github.com/Ebinsoft/QUANTUM_GAUNTLET" target="_blank">Github Link</a>  <a class="play-link" href="QUANTUM_GAUNTLET.html" target="_blank">▶ Play QG In Browser</a></p>
+  
+  <p>
+    <strong>Quantum Gauntlet</strong> is 3D isometric local multiplayer arena brawler. It supports 
+    up to four players playing in Free For All or teams.
+  </p>
+
+  <p>
+    This was built in ~2 months Unity for GA Tech's CS6457. The game consists of a custom-built
+    physics engine and combat state machine.
+  </p>
+  <p><b>No pre-used assets</b>; All models, particle effects, shaders, sound effects, and music done
+     from scratch! The game only has one character, but it otherwise mostly feature complete featuring
+    4 player local multiplayer with CPUs as FFA or Teams with customizable stocks and two levels.</p>
+  <p>You can download it and try to run it via github, or I have hosted a webGL build you can load
+    in browser. (Controller support works in browser but seems to be buggy on Firefox)
+  </p>
+
+  <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+  <!-- Latest compiled and minified Javascript -->
+  <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+    a.play-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #b8b8b8;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+    }
+    a.play-link:hover {
+      background-color: #1a1c1c;
+      color: ghostwhite
+    }
+  </style>

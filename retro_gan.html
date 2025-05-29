@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Bootstrap Optional Theme -->
+    <link rel="stylesheet" type="text/css" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RetroGAN</title>
+
+</head>
+  <!-- Navbar -->
+  <div id="content"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $('#content').load('navbar.html');
+    </script>  
+<body>
+  <h1>RetroGAN</h1>
+  <p><a class="play-link" href="https://github.com/team-triforce/retroGAN" target="_blank">Github Link</a>  <a class="play-link" href="Projects/retro_gan.pdf" target="_blank">RetroGAN Paper</a></p>
+  
+  <p>
+    <strong>RetroGAN</strong> is cycleGAN based GAN network that is trained to automatically convert
+    between 8-bit and 16-bit pixel graphic screenshots.
+  </p>
+
+  <p>
+    This was built in ~1 month Unity for GA Tech's CS7643. It consists of a custom built training dataset,
+    custom loss function, and full training/testing results presented in paper.
+  </p>
+    <p>
+        Overall results were promising(especially for the time), with convincing translations between
+        NES/SNES graphics. SNES -> NES was particularly good, as down-scaling to a more constrained
+        color palette allowed easier training and more convincing fakes.
+  </p>
+
+  <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+  <!-- Latest compiled and minified Javascript -->
+  <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+    a.play-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #b8b8b8;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+    }
+    a.play-link:hover {
+      background-color: #1a1c1c;
+      color: ghostwhite
+    }
+  </style>
